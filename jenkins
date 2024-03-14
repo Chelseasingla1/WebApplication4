@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout Stage') {
             steps {
-                    git credentialsId: 'c2a61364-e7df-43e9-8da8-d8c1a8ce2f89', url: 'https://github.com/Chelseasingla1/WebApplication4'
+                    git credentialsId: '', url: 'https://github.com/Chelseasingla1/WebApplication4'
 				
 				   }
                 }
@@ -33,9 +33,9 @@ pipeline {
         stage('SonarQube Analysis') {
              steps {
                 bat "dotnet tool install --global dotnet-sonarscanner"
-                 bat "dotnet D:\\sonar-scanner-6.2.0.85879-net\\SonarScanner.MSBuild.dll begin /k:\"WebApplication4\" /d:sonar.login=\"sqa_a4a65022fe2285f1bd5e23907432cda1358e353a\" "
+                 bat "dotnet D:\\sonar-scanner-6.2.0.85879-net\\SonarScanner.MSBuild.dll begin /k:\"WebApplication4\" /d:sonar.login=\"\" "
                  bat "dotnet build"
-                 bat "dotnet D:\\sonar-scanner-6.2.0.85879-net\\SonarScanner.MSBuild.dll end /d:sonar.login=\"sqa_a4a65022fe2285f1bd5e23907432cda1358e353a\" "
+                 bat "dotnet D:\\sonar-scanner-6.2.0.85879-net\\SonarScanner.MSBuild.dll end /d:sonar.login=\"\" "
                     }
   }
    stage('Snyk Testing') {
